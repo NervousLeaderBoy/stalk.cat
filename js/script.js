@@ -7,14 +7,14 @@ var headerText = `<div>
         <div>
       
             <table class = "headtable"> <tr>
-                <td align = "center"><a class = "headline" href = "profile.html" > Профиль </a></td> 
-                <td align = "center"><a class = "headline" href = "404 copy.html" > О сайте </a></td>
-                <td align = "center"><a class = "headline" href = "players.html" > Игроки </a></td>
-                <td align = "center"><a class = "headline" href = "404 copy.html" > Игровая </a></td>
-                <td align = "center"><a class = "headline" href = "chat.html" > Чат </a></td>
-                <td align = "center"><a class = "headline" href = "404 copy.html" > Лс </a></td>
-                <td align = "center"><a class = "headline" href = "404 copy.html" > Блоги </a></td>
-                <td align = "center"><a class = "headline" href = "news.html" > Новости </a></td>
+                <td align = "center"><a class = "headline" href = "profile" > Профиль </a></td> 
+                <td align = "center"><a class = "headline" href = "404 copy" > О сайте </a></td>
+                <td align = "center"><a class = "headline" href = "players" > Игроки </a></td>
+                <td align = "center"><a class = "headline" href = "404 copy" > Игровая </a></td>
+                <td align = "center"><a class = "headline" href = "chat" > Чат </a></td>
+                <td align = "center"><a class = "headline" href = "404 copy" > Лс </a></td>
+                <td align = "center"><a class = "headline" href = "404 copy" > Блоги </a></td>
+                <td align = "center"><a class = "headline" href = "news" > Новости </a></td>
                 <td align = "center"><a class = "headline" onclick = "logout();"> Выход</a></td>
             </tr></table>
         </div>
