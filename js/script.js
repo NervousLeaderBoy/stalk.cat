@@ -46,7 +46,7 @@ setFooter();
 function logout(){
   var logoutvar = confirm("Вы точно хотите выйти?");
   if (logoutvar) {
-    window.location.href = "index.html";
+    window.location.href = "index";
     false;
   }
 }
