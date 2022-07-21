@@ -1,0 +1,46 @@
+
+
+.textblockstandart {
+    height: 380px;
+    width: 95%;
+    overflow-y: scroll;
+    background: #3A4646;
+    box-sizing: border-box;
+    border: 1px solid #859594;
+    margin-left: 20px;
+    margin-top: 0px; 
+  }
+
+  .standarttext {
+    font-family: 'Ruda';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #EDEFF1;
+  }
+
+  .bbcode {
+    
+    background: #3A4646;
+    font-family: 'Jura';
+    border: 1px;
+    border-color: #859594;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    display: inline;
+    align-items: center;
+    text-align: center;
+    color: #859594;
+  }
+
+  .bbtable {
+    width: contain;
+    background: #3A4646;
+    border: 1px #859594;
+    max-width: 95%;
+    margin-left: 20px;
+    margin-bottom: 0px;
+  }
