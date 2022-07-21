@@ -1,7 +1,6 @@
 let logged;
 
 var headerText = `<div>
-
 <header>
         <div class = "header-img"></div>
         <div>
