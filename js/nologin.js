@@ -5,10 +5,10 @@ var headerText = `<div>
      
         <div>
             <table class = "headtable"> <tr>
-                <td align = "center"><a class = "headline" href = "about.html" > О сайте </a></td> 
-                <td align = "center"><a class = "headline" href = "reg.html" > Регистрация </a></td>
-                <td align = "center"><a class = "headline" href = "login.html" > Вход </a></td>
-                <td align = "center"><a class = "headline" href = "404.html" > Забыл пароль? </a></td>
+                <td align = "center"><a class = "headline" href = "about" > О сайте </a></td> 
+                <td align = "center"><a class = "headline" href = "reg" > Регистрация </a></td>
+                <td align = "center"><a class = "headline" href = "login" > Вход </a></td>
+                <td align = "center"><a class = "headline" href = "404" > Забыл пароль? </a></td>
             </tr></table>
         </div>
     
