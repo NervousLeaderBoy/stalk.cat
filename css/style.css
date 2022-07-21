@@ -5,7 +5,7 @@ html {
 
 .header-img {
     padding-top: 30px;
-    background: url(nervousleaderboy.github.io/stalk.cat/images/headimage.png) no-repeat center;
+    background: url(/stalk.cat/images/headimage.png) no-repeat center;
     background-color: #859594;
     padding-left: 0;
     padding-right: 0;
@@ -69,7 +69,7 @@ h3 {
 }
 
 body {
-       background: url(nervousleaderboy.github.io/stalk.cat/images/bgpic.jpg);
+       background: url(/stalk.cat/images/bgpic.jpg);
        background-color: #E5E5E7;
        position: bottom;
        background-repeat: no-repeat;
