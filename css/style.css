@@ -5,7 +5,7 @@ html {
 
 .header-img {
     padding-top: 30px;
-    background: url(/images/headimage.png) no-repeat center;
+    background: url(../images/headimage.png) no-repeat center;
     background-color: #859594;
     padding-left: 0;
     padding-right: 0;
@@ -70,7 +70,7 @@ h3 {
 }
 
 body {
-       background: url(/images/bgpic.jpg);
+       background: url(../images/bgpic.jpg);
        background-color: #E5E5E7;
        position: bottom;
        background-repeat: no-repeat;
