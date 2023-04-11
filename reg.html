@@ -1,43 +1,46 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Регистрация</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/textstandart.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <title>Регистрация</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/textstandart.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
-<body class = "wrapper">
+
+<body class="wrapper">
   <div>
-    <h3 style = "visibility: hidden;"> Регистрация</h3>
-    <div class = "transblock">
-       <h2>Регистрация</h2>
+    <h3 style="visibility: hidden;"> Регистрация</h3>
+    <div class="transblock">
+      <h2>Регистрация</h2>
 
-       <div align = "center">
-        <form id = "regist">
-            <div class = "formtitle">Почта</div>
-            <input type="email" name="email" required="required" class = "formblock formtext">
-            <div class = "formtitle">Пароль</div>
-            <input type="password" name="password" required="required" class = "formblock formtext">
-            <div class = "formtitle">Подтвердите пароль</div>
-            <input type="password" name="password repeat" required="required" class = "formblock formtext">
-            <br>
-            <button type = "submit" class = "buttonsimple">Зарегистрироваться</button>
-       </form>
-       <br>
-       </div>
-    </div> 
+      <div align="center">
+        <form id="regist">
+          <div method="post" class="formtitle">Почта</div>
+          <input type="email" id="mail" name="email" required="required"
+            pattern="[a-zA-Z\d][a-zA-Z\d._-]{1,}@[a-z\d]{2,}\.[a-z]{2,}" class="formblock formtext">
+          <br><span id="s1"></span>
+          <div class="formtitle">Пароль</div>
+          <input type="password" id="pass1" name="password" required="required"
+            pattern="(?=.{8,}$)(?=.*[\d])(?=.*[A-zА-яЁё])(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ]).*" class="formblock formtext">
+          <br><span id="s2"></span>
+          <div class="formtitle">Подтвердите пароль</div>
+          <input type="password" id="pass2" name="password repeat" required="required"
+            pattern="(?=.{8,}$)(?=.*[\d])(?=.*[A-zА-яЁё])(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ]).*" class="formblock formtext">
+          <br><span id="s3"></span>
+          <br>
+          <button type="submit" id="reg" class="buttonsimple">Зарегистрироваться</button>
+        </form>
+        <br>
+      </div>
+    </div>
 
 
-   </div>
-  </div> 
-
+  </div>
+  </div>
 </body>
-<script>
-  $("#regist").on("submit",function(e) {
-   e.preventDefault(); // cancel submission
-   window.location.replace("profile.html");
-});
-</script>
+<script src="js/regist.js"></script>
 <script src="js/nologin.js"></script>
+
 </html>

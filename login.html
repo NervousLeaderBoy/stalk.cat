@@ -1,37 +1,40 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-<title>Регистрация</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/textstandart.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-</head>
-<body class = "wrapper">
-  <div>
-    <h3 style = "visibility: hidden;">Войти</h3>
-    <div class = "transblock">
-       <h2>Войти</h2>
 
-       <div align = "center">
-        <form id = "login">
-            <div class = "formtitle">Почта</div>
-            <input type="email" name="email" required="required" class = "formblock formtext">
-            <div class = "formtitle">Пароль</div>
-            <input type="password" name="password" required="required" class = "formblock formtext">
-            <br>
-            <button type = "submit" class = "buttonsimple">Войти</button>
-       </form>
-       <br>
-       </div>
-    </div>     
-  </div> 
+<head>
+  <title>Регистрация</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/textstandart.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class="wrapper">
+  <div>
+    <h3 style="visibility: hidden;">Войти</h3>
+    <div class="transblock">
+      <h2>Войти</h2>
+
+      <div align="center">
+        <form id="login">
+          <div class="formtitle">Почта</div>
+          <input type="email" name="email" required="required" class="formblock formtext">
+          <div class="formtitle">Пароль</div>
+          <input type="password" name="password" required="required" class="formblock formtext">
+          <br>
+          <button type="submit" class="buttonsimple">Войти</button>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
   <script>
-    $("#login").on("submit",function(e) {
-     e.preventDefault(); // cancel submission
-     window.location.replace("profile.html");
-  });
+    $("#login").on("submit", function (e) {
+      e.preventDefault(); // cancel submission
+      window.location.replace("profile.html");
+    });
   </script>
 </body>
 <script src="js/nologin.js"></script>
+
 </html>

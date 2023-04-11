@@ -1,4 +1,4 @@
-var headerText = `<div>
+﻿var headerText = `<div>
 
 <header>
         <div class = "header-img"></div>
