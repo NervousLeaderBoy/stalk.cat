@@ -18,23 +18,18 @@
       <div align="center">
         <form id="login">
           <div class="formtitle">Почта</div>
-          <input type="email" name="email" required="required" class="formblock formtext">
+          <input type="email" id="mail" name="email" required="required" class="formblock formtext">
           <div class="formtitle">Пароль</div>
-          <input type="password" name="password" required="required" class="formblock formtext">
+          <input type="password" id="pass" name="password" required="required" class="formblock formtext">
           <br>
-          <button type="submit" class="buttonsimple">Войти</button>
+          <button type="submit" id="in" class="buttonsimple">Войти</button>
         </form>
         <br>
       </div>
     </div>
   </div>
-  <script>
-    $("#login").on("submit", function (e) {
-      e.preventDefault(); // cancel submission
-      window.location.replace("profile.html");
-    });
-  </script>
 </body>
+<script src="js/login.js"></script>
 <script src="js/nologin.js"></script>
 
 </html>
