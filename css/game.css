@@ -1,0 +1,25 @@
+.gamewrapper {
+    background-color: rgba(102, 100, 100, 0.75);
+}
+/*
+body {
+    background: url(../images/bgpic.jpg);
+    background-color: rgba(44, 44, 44, 0.75);
+    backdrop-filter: blur(15px);
+    position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+     
+}*/
+
+body::before {
+    content: '';
+    position: fixed; /* Фиксируем на одном месте */
+    left: 0; right: 0; /* Вся ширин */
+    top: 0; bottom: 0; /* Вся высота */
+    z-index: -1; /* Фон ниже текста */
+    /* Параметры фона */
+    background: url(../images/bgpic.jpg) center / cover no-repeat;
+    filter: blur(5px) opacity(75%); 
+
+}
