@@ -1,5 +1,3 @@
-let logged;
-
 var headerText = `<div>
 
 <header>
@@ -8,12 +6,12 @@ var headerText = `<div>
       
             <table class = "headtable"> <tr>
                 <td align = "center"><a class = "headline" href = "profile.html" > Профиль </a></td> 
-                <td align = "center"><a class = "headline" href = "404 copy.html" > О сайте </a></td>
+                <td align = "center"><a class = "headline" href = "about.html" > О сайте </a></td>
                 <td align = "center"><a class = "headline" href = "players.html" > Игроки </a></td>
-                <td align = "center"><a class = "headline" href = "404 copy.html" > Игровая </a></td>
+                <td align = "center"><a class = "headline" href = "game.html" > Игровая </a></td>
                 <td align = "center"><a class = "headline" href = "chat.html" > Чат </a></td>
-                <td align = "center"><a class = "headline" href = "404 copy.html" > Лс </a></td>
-                <td align = "center"><a class = "headline" href = "404 copy.html" > Блоги </a></td>
+                <td align = "center"><a class = "headline" href = "pm.html" > Лс </a></td>
+                <td align = "center"><a class = "headline" href = "blogs.html" > Блоги </a></td>
                 <td align = "center"><a class = "headline" href = "news.html" > Новости </a></td>
                 <td align = "center"><a class = "headline" onclick = "logout();"> Выход</a></td>
             </tr></table>
@@ -45,9 +43,16 @@ setFooter();
 
 function logout(){
   var logoutvar = confirm("Вы точно хотите выйти?");
-  if (logoutvar) {
-    window.location.href = "index.html";
-    false;
+    if (logoutvar) {
+        var logoutaj = $.ajax({
+            type: "POST",
+            url: "../php/logout.php"
+        })
+
+        logoutaj.done(function (response) {
+            alert(response);
+            window.location.href = "about nologin.html";
+        })
   }
 }
 

@@ -5,7 +5,7 @@
      
         <div>
             <table class = "headtable"> <tr>
-                <td align = "center"><a class = "headline" href = "about.html" > О сайте </a></td> 
+                <td align = "center"><a class = "headline" href = "about nologin.html" > О сайте </a></td> 
                 <td align = "center"><a class = "headline" href = "reg.html" > Регистрация </a></td>
                 <td align = "center"><a class = "headline" href = "login.html" > Вход </a></td>
                 <td align = "center"><a class = "headline" href = "404.html" > Забыл пароль? </a></td>

@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Игровая</title>
-  <link rel="stylesheet" href="css/game.css">
-  <meta charset="utf-8">
-</head>
+    <head>
+        <title>Игровая</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/game.css">
+        <meta charset="utf-8">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<body class = "gamewrapper"> 
-<div>
+        <style>
+            .gametable {
+                background-color: white;
+                background-size: cover;
+                display: inline-table;
+            }
+            .gametable td {
+                border: 1px solid black;
+            }
+            .gametable td {
+                width: 50px;
+                height: 50px;
+                text-align: center;
+            }
+            .gametable > thead td {
+                background-color: paleturquoise;
+            }
 
+            .occupied {
+                background-color: rgba(255, 255, 255, 0.301);
+            }
 
+            td:has(#char) {
+                border: 1px solid orange;
+            }
 
+            #msg, .waitingbench {
+                display: inline-block;
+            }
 
-    </div>
-</body>
+            h2 {
+                color: #cf755f;
+            }
+        </style>
+    </head>
+
+    <body class = "gamewrapper"> 
+        <div id="game">
+
+        </div>
+    </body>
+
+    <script src="js/script.js"></script>
+    <script src="js/onclose.js"></script>
+    <script src="js/game.js"></script>
 
 </html>

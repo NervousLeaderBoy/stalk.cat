@@ -2,17 +2,23 @@
 include_once 'dbconnect.php';
 
 $email = htmlspecialchars($_POST['email']);
-$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$pass = $_POST['password'];
 
-session_start();
-
-$sessid = session_id();
-$logupdate = mysqli_query($conn, "UPDATE users SET lastdate=NOW(), token='$sessid', status='online' WHERE username='$email'");
-
-if (!$logupdate) {
-    echo "Ошибка входа!";
-}
-else{
-    $_SESSION['email'] = $_POST['email'];
+$getuserandpass = mysqli_query($link, "SELECT email, password FROM users WHERE email='$email'");
+if (mysqli_num_rows($getuserandpass) <= 0) echo "Пользователь с такой почтой не найден";
+else {
+    $passhash = mysqli_fetch_assoc($getuserandpass)["password"];
+    if (password_verify($pass, $passhash)) {
+        
+        session_start();
+        $sessid = session_id();
+        
+        $logupdate = mysqli_query($link, "UPDATE users SET lastdate=NOW(), token='$sessid', status='online' WHERE email='$email'");
+        
+        if (!$logupdate) echo "Ошибка входа.";
+        
+        session_destroy();
+    } 
+    else echo "Неверный пароль";
 }
 ?>
