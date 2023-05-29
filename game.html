@@ -8,22 +8,30 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+        <script>
+            var checkchars = $.ajax({
+                type: "GET",
+                url: "../php/checkchars.php"
+            })
+
+            checkchars.done(function(response) {
+                if (response != "") window.location.replace("maker.html");
+            })
+        </script>
+
         <style>
             .gametable {
                 background-color: white;
                 background-size: cover;
                 display: inline-table;
+                border-spacing: 0;
             }
+
             .gametable td {
-                border: 1px solid black;
-            }
-            .gametable td {
-                width: 50px;
-                height: 50px;
+                border: 2px solid rgba(0, 0, 0, 0.021);
+                width: 60px;
+                height: 60px;
                 text-align: center;
-            }
-            .gametable > thead td {
-                background-color: paleturquoise;
             }
 
             .occupied {
@@ -31,7 +39,7 @@
             }
 
             td:has(#char) {
-                border: 1px solid orange;
+                border: 2px solid orange;
             }
 
             #msg, .waitingbench {
@@ -44,7 +52,7 @@
         </style>
     </head>
 
-    <body class = "gamewrapper"> 
+    <body class = "gamewrapper">
         <div id="game">
 
         </div>

@@ -1,35 +1,117 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Добро пожаловать</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta charset="utf-8">
+    <head>
+        <title>Профиль</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="utf-8">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <style>
+            .usertable {
+                display: inline-table;
+                border-spacing: 0px 1px;
+                margin-left: 20px;
+            }
+            .usertable tr {
+                font-size: 20px;
+                background-color: rgba(255, 255, 255, 0.452);
+            }
+            .usertable td {
+                padding: 10px 20px;
+            }
+            .row {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .userpic {
+                border: 3px solid #3A4646;
+                padding-left: 15px;
+                padding-top: 15px;
+                background-color: #859594;
+            }
+            textarea {
+                display: inline-flex;
+                height: 80px;
+                flex-grow: 1;
+                padding: 10px;
+            }
+            form {
+                display: flex;
+                flex-flow: column wrap;
+                flex-grow: 1;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
 
-<body class="wrapper">
-  <div>
-    <h3 style="visibility: hidden;"> Главная </h3>
-    <div class="transblock">
-      <h1 align="center"> Добро пожаловать в онлайн ролевую игру!</h1>
-      <p class="textinblock" align="center">Проект представляет из себя совмещение двух пусть и совершенно разных, но
-        интересных сеттинга -
-        тебе предстоит в роли дикого кота выживать на территории радиоактивной пустоши. Зона не место для нежных
-        кошачьих лапок:
-        придется столкнуться с опасными мутировавшими существами, проходить сквозь смертельные аномальные поля и многое
-        другое. </p>
-      <br>
-      <p class="textinblock" align="center"> Заинтересовало? <a href="reg.html">Регистрируйся</a> и играй на сайте!</p>
-      <br>
+    <body class="wrapper">
+        <div>
+            <h3 style="display:none"> Главная </h3>
+            <div class="transblock">
 
-    </div>
+            </div>
+        </div>
+    </body>
 
-  </div>
+    <script src="js/script.js"></script>
+    <script src="js/onclose.js"></script>
 
-</body>
-<script src="js/script.js"></script>
-<script src="js/onclose.js"></script>
+    <script>
+        var infodiv = document.querySelector(".transblock");
+
+        var getplayers = $.ajax({
+            type: "GET",
+            url: "../php/getplayerprofile.php"
+        })
+
+        getplayers.done(function(response){
+            infodiv.innerHTML = response;
+            
+            if (infodiv.lastChild.childNodes.length >= 2) {
+
+                var frm = document.querySelector("form");
+                frm.addEventListener("submit", function(e){
+                    e.preventDefault();
+                })
+
+                var change = document.querySelector("input[type=button]");
+                var subm = document.querySelector("input[type=submit]");
+                var about = document.querySelector("textarea");
+                var oldabout = about.value;
+                
+                change.addEventListener("click", function(){
+                    if (about.disabled) {
+                        about.disabled = subm.disabled = false;
+                        change.value = "Отменить изменения";
+                    }
+                    else {
+                        about.disabled = subm.disabled = true;
+                        about.value = oldabout;
+                        change.value = "  Изменить \"о себе\"  ";
+                    }
+                })
+
+                subm.addEventListener("click", function(){
+                    let updaboutaj = $.ajax({
+                        type: "POST",
+                        url: "../php/updateabout.php",
+                        data: $(frm).serialize()
+                    })
+                    
+                    updaboutaj.done(function(response){
+                        if (response != "Произошла ошибка при сохранении. Повторите позже.") {
+                            about.disabled = subm.disabled = true;
+                            oldabout = about.value;
+                            change.value = "  Изменить \"о себе\"  ";
+                        }
+                        alert(response);
+                    })
+                })
+            }
+
+        })
+
+    </script>
 
 </html>

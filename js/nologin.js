@@ -25,7 +25,7 @@ setdeader();
 
 var footerText = `<div>
 <div class = "footer"> 
-      <div style="align: left; margin-left:20px; display: inline-block;">(c) 2022 - </div> <div style="align: center; display: inline-block;"><a href = vk.com/atomicprettyboy>Контакты</a></div><div style="display: inline-block;">|</div><div style = "display: inline-block;"></div><a href = "about.html">О сайте</a></div>
+      (c) 2022 - <a onclick = "contacts();">Контакты</a> | <a href = "about.html">О сайте</a> | <a href = "about nologin.html">Главная</a>
 </div>`
 
 function setFooter() {

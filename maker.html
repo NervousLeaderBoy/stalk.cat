@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Создайте персонажа</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="utf-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <script>
+            var checkchars = $.ajax({
+                type: "GET",
+                url: "../php/checkchars.php"
+            })
+
+            checkchars.done(function(response) {
+                if (response == "") window.location.replace("game.html");
+            })
+        </script>
+
+        <style>
+            canvas {
+                display: none;
+            }
+            #forcanvas {
+                word-wrap: break-word;
+            }
+            form, #svgcontainer {
+                display: inline-block;
+            }
+            form {
+                min-height: 90%;
+                background-color: rgba(255, 255, 255, 0.418);
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body class="wrapper">
+        <div class="transblock">
+            <center>
+                <h1>Создайте персонажа</h1>
+                <form>
+                    <label>Имя персонажа:<input type="text" id="charname" placeholder="Имя персонажа" pattern="[A-Za-zА-Яа-яЁё ]{3,30}" minlength="3" maxlength="30"></label>
+                    <span id="s1"></span><br>
+                    <span id="s2"></span>
+                    <br>
+                    <label>Тело:<input type="color" id="bodyC" value="#FFFFFF"></label>
+                    <label>Хвост:<input type="color" id="tailC" value="#FFFFFF"></label>
+                    <label>Окраска:<input type="color" id="markC" value="#FFFFFF"></label>
+                    <label>Уши:<input type="color" id="earC" value="#FFFFFF"></label>
+                    <label>Глаза:<input type="color" id="eyeC" value="#FFFFFF"></label>
+                    <br><br>
+                    <label><input type="radio" name="eyes" id="eye_1" checked>Глаза 1</label>
+                    <label><input type="radio" name="eyes" id="eye_2">Глаза 2</label>
+                    <br><br>
+                    <label><input type="radio" name="tail" id="tail_1" checked>Хвост 1</label>
+                    <label><input type="radio" name="tail" id="tail_2">Хвост 2</label>
+                    <label><input type="radio" name="tail" id="tail_3">Хвост 3</label>
+                    <label><input type="radio" name="tail" id="tail_4">Хвост 4</label>
+                    <br><br>
+                    <label><input type="radio" name="mark" id="mark_1">Окраска 1</label>
+                    <label><input type="radio" name="mark" id="mark_2">Окраска 2</label>
+                    <label><input type="radio" name="mark" id="mark_3">Окраска 3</label>
+                    <label><input type="radio" name="mark" id="nomark" checked>Нет окраски</label>
+                    <br><br>
+                    <input type="submit" class="buttonsimple" id="download" value="Скачать">
+                    <input type="submit" class="buttonsimple" id="save" value="Сохранить">
+                    <br><br>
+                </form>
+
+                <div id="svgcontainer">
+                    <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" width="500" viewBox="0 0 497.5 505.60801">
+                        <polygon id="tail_1" data-name="tail 1" points="344.098 420.799 380.69 391.245 408.837 346.209 369.431 215.325 377.875 225.177 380.69 182.956 394.763 153.402 394.763 167.475 428.54 140.736 428.949 145.055 465.131 149.18 480.612 166.068 465.131 159.031 480.612 186.07 477.797 216.733 470.76 192.808 460.909 199.844 460.909 239.25 486.241 309.618 494.685 301.174 489.056 333.543 481.36 393.082 497.5 392.652 479.204 402.504 438.642 453.207 341.284 484.13 344.098 420.799" fill="#df8e00"/>
+                        <polygon id="tail_2" data-name="tail 2" visibility="hidden" points="344.098 420.799 380.69 391.245 408.837 346.209 375.06 250.509 370.838 219.547 377.266 230.891 382.097 168.883 386.319 175.919 420.095 139.328 414.466 154.809 429.947 144.958 442.613 139.328 443.272 155.108 448.243 150.587 446.835 177.327 436.984 232.214 461.793 312.845 469.353 301.174 463.497 335.132 456.497 384.129 472.168 372.949 448.367 401.292 414.717 443.356 341.284 484.13 344.098 420.799" fill="#df8e00"/>
+                        <polygon id="tail_3" data-name="tail 3" visibility="hidden" points="380.69 391.245 344.098 420.799 341.284 484.13 414.717 443.356 452.465 406.726 472.168 372.949 456.497 384.129 463.723 367.32 469.353 312.433 462.316 285.693 457.345 290.214 456.687 274.434 444.021 280.064 428.54 289.915 422.91 281.471 408.837 311.025 404.615 303.989 399.783 365.997 393.356 354.653 380.69 391.245" fill="#df8e00"/>
+                        <polygon id="tail_4" data-name="tail 4" visibility="hidden" points="341.284 484.13 344.098 420.799 380.69 391.245 397.8 373.672 394.895 381.347 426.81 374.069 423.674 383.72 441.001 389.76 453.271 396.209 441.297 406.509 448.243 410.948 432.762 436.28 441.206 443.317 407.429 457.39 415.873 461.612 341.284 484.13" fill="#df8e00"/>
+                        <polygon id="body_1" data-name="body 1" points="387.717 436.261 387.726 436.211 383.466 364.335 359.47 304.206 362.394 301.174 349.415 284.824 311.043 223.766 322.988 225.177 301.912 213.736 283.602 199.321 290.619 192.808 264.435 184.232 249.435 172.424 256.842 167.475 197.733 163.253 201.955 160.438 189.289 142.143 197.733 139.328 176.623 128.069 180.845 121.033 156.899 116.488 154.105 106.959 159.735 105.552 147.069 83.034 159.466 83.302 140.402 64.662 148.476 63.331 125.958 50.665 120.329 45.035 125.958 39.406 89.367 33.777 93.589 29.554 59.813 25.332 31.665 45.034 38.347 161.101 40.228 181.429 29.825 203.235 45.739 198.437 41.517 215.325 42.924 237.843 49.961 225.177 58.405 270.212 65.442 264.583 79.516 291.322 83.918 291.181 112.909 327.158 95.866 475.866 87.345 475.866 78.108 488.352 79.516 505.24 108.649 505.608 127.822 503.13 136.343 485.78 153.386 413.905 185.342 339.551 193.577 342.744 178.995 383.721 186.451 435.663 206.178 471.464 190.697 474.279 182.252 493.982 190.697 505.24 355.357 505.24 379.205 480.213 379.266 479.896 379.282 479.908 387.726 436.28 387.717 436.261" fill="#ffb155"/>
+                        <polygon id="ear_1_1" data-name="ear 1 1" points="59.65 24.785 29.825 12.392 17.043 0 23.434 19.828 36.216 32.22 38.347 40.037 59.65 24.785" fill="#df8e00"/>
+                        <polygon id="head_1" data-name="head 1" points="59.65 24.785 21.814 45.035 31.955 44.612 17.592 59.109 21.814 60.516 10.652 76.833 10.652 103.384 0 126.402 14.913 146.23 21.304 148.708 21.304 153.665 27.695 158.622 38.347 161.101 53.259 156.144 66.041 146.23 100.127 126.402 106.518 59.483 93.736 34.699 59.65 24.785" fill="#ffb155"/>
+                        <polygon id="nose" points="0 126.402 11.963 126.402 8.14 137.226 0 126.402" fill="#ff9fda"/>
+                        <polygon id="eye_1" data-name="eye 1" points="27.695 104.096 27.695 83.331 45.739 83.331 36.717 96.997 27.695 104.096" fill="#007960"/>
+                        <polygon id="eye_2" data-name="eye 2" visibility="hidden" points="24.88 101.281 27.695 83.331 49.961 84.738 38.124 95.59 24.88 101.281" fill="#007960"/>
+                        <polygon id="ear_1_2" data-name="ear 1 2" points="51.129 49.569 48.115 24.785 48.115 4.878 61.781 19.828 93.736 34.699 106.518 59.483 97.811 74.59 77.316 79.311 51.129 49.569" fill="#df8e00"/>
+                        <polygon id="mark_1" data-name="mark 1" visibility="hidden" points="112.909 327.158 95.866 475.866 87.345 475.866 78.108 488.352 79.516 505.24 108.649 505.608 127.822 503.13 136.343 485.78 153.386 413.905 185.342 339.551 112.909 327.158" fill="#ffd394"/>
+                        <polygon id="mark_2" data-name="mark 2" visibility="hidden" points="102.968 413.905 95.866 475.866 87.345 475.866 78.108 488.352 79.516 505.24 108.649 505.608 127.822 503.13 136.343 485.78 153.386 413.905 102.968 413.905" fill="#ffd394"/>
+                        <polygon id="mark_3" data-name="mark 3" visibility="hidden" points="95.866 475.866 87.345 475.866 78.108 488.352 79.516 505.24 108.649 505.608 127.822 503.13 136.343 485.78 95.866 475.866" fill="#ffd394"/>
+                      </svg>                                                             
+                </div>
+                
+                <div id="forcanvas"></div>
+            </center>
+        </div>
+
+    </body>
+
+    <script>
+        var frm = document.querySelector("form");
+        frm.addEventListener("submit", function(e) {
+            e.preventDefault();
+        })
+        var s1 = document.querySelector("#s1");
+
+        var charname = document.querySelector("#charname");
+        charname.addEventListener("change", function() {
+            var checkname = $.ajax({
+                type: "POST",
+                url: "../php/checkname.php",
+                data: {
+                    charname: charname.value
+                }
+            })
+
+            checkname.done(function(response) {
+                s1.innerHTML = response;
+                if (response == "Имя занято") charname.setCustomValidity("Имя занято");
+                else charname.setCustomValidity("");
+            })
+        })
+
+        var canvdiv = document.querySelector("#forcanvas");
+
+        var bodyC = document.querySelector("#bodyC");
+        var bodies = document.querySelectorAll("polygon[id^=body]");
+        var heads = document.querySelectorAll("polygon[id^=head]");
+
+        var tailC = document.querySelector("#tailC");
+        var tailType = document.querySelectorAll("input[id^=tail]");
+        var tails = document.querySelectorAll("polygon[id^=tail]");
+
+        var earC = document.querySelector("#earC");
+        var ears = document.querySelectorAll("polygon[id^=ear]");
+
+        var markC = document.querySelector("#markC");
+        var markType = document.querySelectorAll("input[id^=mark]");
+        var marks = document.querySelectorAll("polygon[id^=mark]");
+        var nomark = document.querySelector("#nomark");
+
+        var eyeC = document.querySelector("#eyeC");
+        var eyesType = document.querySelectorAll("input[id^=eye]");
+        var eyes = document.querySelectorAll("polygon[id^=eye]");
+        
+        var save = document.querySelector("#save");
+        var download = document.querySelector("#download");
+
+        bodyC.value = bodies[0].getAttribute("fill");
+        tailC.value = tails[0].getAttribute("fill");
+        earC.value = ears[0].getAttribute("fill");
+        markC.value = marks[0].getAttribute("fill");
+        eyeC.value = eyes[0].getAttribute("fill");
+
+        eyesType.forEach(element => {
+            element.addEventListener("click", function() {
+                if (element.checked) {
+                    document.querySelector("polygon#" + element.getAttribute("id")).setAttribute("visibility", "visible");
+                    eyes.forEach(el => {
+                        if (el.getAttribute("id") != element.getAttribute("id")) document.querySelector("polygon#" + el.getAttribute("id")).setAttribute("visibility", "hidden");
+                    })
+                }
+            })
+        });
+
+        tailType.forEach(element => {
+            element.addEventListener("click", function() {
+                if (element.checked) {
+                    document.querySelector("polygon#" + element.getAttribute("id")).setAttribute("visibility", "visible");
+                    tails.forEach(el => {
+                        if (el.getAttribute("id") != element.getAttribute("id")) document.querySelector("polygon#" + el.getAttribute("id")).setAttribute("visibility", "hidden");
+                    })
+                }
+            })
+        });
+
+        markType.forEach(element => {
+            element.addEventListener("click", function() {
+                if (element.checked) {
+                    document.querySelector("polygon#" + element.getAttribute("id")).setAttribute("visibility", "visible");
+                    marks.forEach(el => {
+                        if (el.getAttribute("id") != element.getAttribute("id")) document.querySelector("polygon#" + el.getAttribute("id")).setAttribute("visibility", "hidden");
+                    })
+                }
+            })
+        });
+
+        bodyC.addEventListener("change", function() {
+            bodies.forEach(element => {
+                element.setAttribute("fill", bodyC.value);
+            });
+            heads.forEach(element => {
+                element.setAttribute("fill", bodyC.value);
+            });
+        })
+
+        tailC.addEventListener("change", function() {
+            tails.forEach(element => {
+                element.setAttribute("fill", tailC.value);
+            })
+        });
+            
+        markC.addEventListener("change", function() {
+            marks.forEach(element => {
+                element.setAttribute("fill", markC.value);
+            });
+        })
+
+        earC.addEventListener("change", function() {
+            ears.forEach(element => {
+                element.setAttribute("fill", earC.value);
+            });
+        })
+
+        eyeC.addEventListener("change", function() {
+            eyes.forEach(element => {
+                element.setAttribute("fill", eyeC.value);
+            });
+        })
+
+        nomark.addEventListener("click", function() {
+            marks.forEach(element => {
+                element.setAttribute("visibility", "hidden");
+            });
+        })
+
+        save.addEventListener("click", function() {
+            if (charname.validity.valid && s1.innerHTML == "Имя свободно") {
+                let html = document.querySelector("svg").parentNode.innerHTML;
+                let imgsrc = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(html)));
+                let canvas = document.createElement("canvas"),
+                context = canvas.getContext("2d");
+                canvas.setAttribute('width', 500);
+                canvas.setAttribute('height', 550);
+                canvdiv.appendChild(canvas);
+                
+                let image = new Image;
+                image.src = imgsrc;
+                image.onload = function () {
+                    context.drawImage(image, 0, 0);
+                    let canvasdata = canvas.toDataURL("image/png");
+                    
+                    let save = confirm("После сохранения вы не сможете изменить персонажа. Сохранить?");
+                    if (save) {
+                        let saveaj = $.ajax({
+                            type: "POST",
+                            url: "../php/savepicture.php",
+                            data: {
+                                charname: charname.value,
+                                picture: canvasdata
+                            }
+                        })
+
+                        saveaj.done(function(response) {
+                            if (response !== "") alert(response);
+                            else {
+                                canvdiv.removeChild(canvas);
+                                window.location.replace("game.html");
+                            }
+                        })
+                        
+                    }
+                };
+            }
+            else alert("Невозможно сохранить. Убедитесь, что имя корректно и свободно.");
+        })
+
+        download.addEventListener("click", function() {
+            let html = document.querySelector("svg").parentNode.innerHTML;
+            let imgsrc = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(html)));
+            let canvas = document.createElement("canvas"),
+            context = canvas.getContext("2d");
+            canvas.setAttribute('width', 500);
+            canvas.setAttribute('height', 550);
+            canvdiv.appendChild(canvas);
+            
+            let image = new Image;
+            image.src = imgsrc;
+            image.onload = function () {
+                context.drawImage(image, 0, 0);
+                let canvasdata = canvas.toDataURL("image/png");
+                let a = document.createElement("a");
+                canvdiv.appendChild(a);
+                a.href = canvasdata;
+                a.download = charname.value + ".png";
+                a.click();
+                canvdiv.removeChild(canvas);
+                canvdiv.removeChild(a);
+            };
+        })
+
+    </script>
+    <script src="js/script.js"></script>
+    <script src="js/onclose.js"></script>
+
+</html>

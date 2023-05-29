@@ -1,36 +1,121 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Добро пожаловать</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta charset="utf-8">
+    <head>
+        <title>Чат</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="utf-8">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<body class="wrapper">
-  <div>
-    <h3 style="visibility: hidden;"> Главная </h3>
+        <style>
+            .playerstable {
+                border-spacing: 0px 1px;
+                max-height: 40vh;
+                display: block;
+                overflow-y: auto;
+            }
+            .playerstable tr {
+                font-size: 20px;
+                background-color: rgba(255, 255, 255, 0.452);
+            }
+            .playerstable > thead td {
+                border-bottom: 3px solid #0000002e;
+            }
+            .playerstable > thead td:first-child {
+                min-width: 500px;
+            }
+            .playerstable td {
+                padding: 10px 20px;
+                word-wrap: break-word;
+                max-width: 500px;
+            }
+            .row {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            textarea {
+                display: inline-flex;
+                height: 35px;
+                flex-grow: 1;
+                padding: 10px;
+                margin: 10px 0;
+            }
+            form {
+                display: flex;
+                flex-flow: row wrap;
+                flex-grow: 1;
+                margin-top: 20px;
+                align-items: flex-end;
+            }
+            form input {
+                flex-grow: 0;
+            }
+        </style>
+    </head>
+
+    <body class="wrapper">
+    <div>
+    <h3 style="display:none"> Главная </h3>
     <div class="transblock">
-      <h1 align="center"> Добро пожаловать в онлайн ролевую игру!</h1>
-      <p class="textinblock" align="center">Проект представляет из себя совмещение двух пусть и совершенно разных, но
-        интересных сеттинга -
-        тебе предстоит в роли дикого кота выживать на территории радиоактивной пустоши. Зона не место для нежных
-        кошачьих лапок:
-        придется столкнуться с опасными мутировавшими существами, проходить сквозь смертельные аномальные поля и многое
-        другое. </p>
-      <br>
-      <p class="textinblock" align="center"> Заинтересовало? <a href="reg.html">Регистрируйся</a> и играй на сайте!</p>
-      <br>
 
     </div>
 
-  </div>
+    </div>
 
-</body>
-<script src="js/script.js"></script>
-<script src="js/onclose.js"></script>
+    </body>
+    <script src="js/script.js"></script>
+    <script src="js/onclose.js"></script>
+    <script>
+        var div = document.querySelector(".transblock");
 
+        var getchat = $.ajax({
+            type: "GET",
+            url: "../php/getchat.php"
+        })
+
+        getchat.done(function(response){
+            div.innerHTML = response;
+            var frm = document.querySelector("form");
+            frm.addEventListener("submit", function(e){
+                e.preventDefault();
+            })
+
+            var tbody = document.querySelector(".playerstable tbody");
+            var subm = document.querySelector("input[type=submit]");
+            var msg = document.querySelector("textarea");
+
+            subm.addEventListener("click", function(){
+                let updaboutaj = $.ajax({
+                    type: "POST",
+                    url: "../php/sendchatmsg.php",
+                    data: $(frm).serialize()
+                })
+                
+                updaboutaj.done(function(response){
+                    if (response != "Произошла ошибка при отправке сообщения. Повторите позже.") {
+                        let date = new Date();
+                        let time = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                        time += ":";
+                        time += date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                        time += ":";
+                        time += date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+
+                        let values = [msg.value, response, time];
+                        let newrow = document.createElement("tr");
+                        for (let i = 0; i < 3; i++) {
+                            let td = document.createElement("td");
+                            td.innerHTML = values[i];
+                            newrow.appendChild(td);
+                        }
+                        tbody.append(newrow);                        
+                        msg.value = "";
+                    }
+                    else alert(response);
+                })
+            })
+        })
+
+    </script>
 
 </html>

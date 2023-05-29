@@ -2,28 +2,38 @@
 <html>
 
 <head>
-  <title>Добро пожаловать</title>
+  <title>Игроки</title>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="utf-8">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <style>
+    .playerstable {
+        border-spacing: 0px 1px;
+    }
+    .playerstable tr {
+        font-size: 20px;
+        background-color: rgba(255, 255, 255, 0.452);
+    }
+    .playerstable > thead td {
+        border-bottom: 3px solid #0000002e;
+    }
+    .playerstable td {
+        padding: 10px 20px;
+    }
+
+    .online {
+        color: #cf755f;
+    }
+
+  </style>
 </head>
 
 <body class="wrapper">
   <div>
-    <h3 style="visibility: hidden;"> Главная </h3>
+    <h3 style="display:none"> Главная </h3>
     <div class="transblock">
-      <h1 align="center"> Добро пожаловать в онлайн ролевую игру!</h1>
-      <p class="textinblock" align="center">Проект представляет из себя совмещение двух пусть и совершенно разных, но
-        интересных сеттинга -
-        тебе предстоит в роли дикого кота выживать на территории радиоактивной пустоши. Зона не место для нежных
-        кошачьих лапок:
-        придется столкнуться с опасными мутировавшими существами, проходить сквозь смертельные аномальные поля и многое
-        другое. </p>
-      <br>
-      <p class="textinblock" align="center"> Заинтересовало? <a href="reg.html">Регистрируйся</a> и играй на сайте!</p>
-      <br>
-
     </div>
 
   </div>
@@ -31,5 +41,18 @@
 </body>
 <script src="js/script.js"></script>
 <script src="js/onclose.js"></script>
+<script>
+    var playersdiv = document.querySelector(".transblock");
+
+    var getplayers = $.ajax({
+        type: "GET",
+        url: "../php/getplayerstable.php"
+    })
+
+    getplayers.done(function(response){
+        playersdiv.innerHTML = response;
+    })
+
+</script>
 
 </html>
