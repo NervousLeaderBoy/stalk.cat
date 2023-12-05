@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Вход</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/textstandart.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class="wrapper">
+  <div>
+    <h3 style="display:none">Войти</h3>
+    <div class="transblock">
+      <h2>Сменить пароль</h2>
+
+      <div align="center">
+        <form id="login" action="php/passreset.php">
+          <div class="formtitle">Почта</div>
+          <input type="email" id="mail" name="email" required="required" pattern="[a-zA-Z\d][a-zA-Z\d._-]{1,}@[a-z\d]{2,}\.[a-z]{2,}" class="formblock formtext">
+          <br><span id="s1"></span>
+          <div class="formtitle">Новый пароль</div>
+          <input type="password" id="pass" name="password" required="required" pattern="(?=.{8,}$)(?=.*[\d])(?=.*[A-zА-яЁё])(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ]).*" class="formblock formtext">
+          <br><span id="s2"></span>
+          <br>
+          <button type="submit" id="in" class="buttonsimple">Отправить</button>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+</script>
+
+</html>
