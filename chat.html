@@ -110,6 +110,10 @@
                         }
                         tbody.append(newrow);                        
                         msg.value = "";
+                        tbody.parentNode.scrollTo({
+                            top: 10000,
+                            behavior: "smooth",
+                            });
                     }
                     else alert(response);
                 })

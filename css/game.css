@@ -1,6 +1,97 @@
 .gamewrapper {
-    background-color: rgba(102, 100, 100, 0.75);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
 }
+
+/* CHAR INFO */
+
+.charInfo {
+    height: 780px;
+    margin-right: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.charInfoBlock {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.charInfoBlock h1 {
+    font-size: 30px;
+    text-align: left;
+}
+
+.charInfoTable tr:nth-child(even) {
+    background-color: #3A4646;
+    border-spacing: 5px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    display: block;
+}
+
+.charInfoTable td {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    padding: 0;
+}
+.charInfoTable tr:nth-child(even) td:not(.filled) {
+    background-color: gray;
+}
+
+.filled {
+    background-color: orange;
+}
+
+/* GAME */
+
+.gametable {
+    background-color: white;
+    background-size: cover;
+    display: inline-table;
+    border-spacing: 0;
+}
+
+.gametable td {
+    border: 2px solid rgba(0, 0, 0, 0.021);
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
+
+.occupied {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.transition {
+    color: white;
+    background-image: url(../images/portal.png);
+    background-size: cover;
+    background-color: blueviolet;
+    border-radius: 30px;
+}
+
+td:has(#char) {
+    border: 2px solid orange;
+}
+
+#msg, .waitingbench {
+    display: inline-block;
+}
+
+h2 {
+    color: #cf755f;
+}
+
+
+
 /*
 body {
     background: url(../images/bgpic.jpg);

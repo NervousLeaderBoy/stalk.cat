@@ -30,7 +30,7 @@ setHeader();
 
 var footerText =  `<div>
 <div class = "footer"> 
-      (c) 2022 - <a onclick = "contacts();">Контакты</a> | <a href = "about.html">О сайте</a> | <a href = "about nologin.html">Главная</a>
+      (c) 2023 - <a onclick = "contacts();">Контакты</a> | <a href = "about.html">О сайте</a> | <a href = "about nologin.html">Главная</a>
 </div>`
 
 function setFooter() {

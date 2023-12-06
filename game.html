@@ -18,43 +18,210 @@
                 if (response != "") window.location.replace("maker.html");
             })
         </script>
-
         <style>
-            .gametable {
-                background-color: white;
-                background-size: cover;
-                display: inline-table;
-                border-spacing: 0;
+            .tabrow {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
             }
 
-            .gametable td {
-                border: 2px solid rgba(0, 0, 0, 0.021);
-                width: 60px;
-                height: 60px;
+            .tabContent {
+                width: 140px;
+                padding: 5px;
+                height: 120px;
+                border: 10px solid #3A4646;
+                background-color: rgba(237, 239, 241, 0.45);
+            }
+
+            .tab {
+                font-size: 20px;
+                padding: 10px;
                 text-align: center;
-            }
-
-            .occupied {
-                background-color: rgba(255, 255, 255, 0.301);
-            }
-
-            td:has(#char) {
-                border: 2px solid orange;
-            }
-
-            #msg, .waitingbench {
-                display: inline-block;
-            }
-
-            h2 {
-                color: #cf755f;
+                background-color: #859594;
+                flex: 1 1 0;
+                cursor: pointer;
             }
         </style>
     </head>
 
-    <body class = "gamewrapper">
-        <div id="game">
-
+    <body>
+        <div class = "gamewrapper">
+            <div class="charInfo">
+                <div id="mapAndNotes" class="charInfoBlock">
+                    <div class = "tabrow">
+                        <div id="miniMap" class="tab">Карта</div>
+                        <div id="notes" class="tab" style="background-color: #3A4646; color: white">Заметки</div>
+                    </div>
+                    <div class="tabContent">У меня пока ещё нет карты этой местности</div>
+                </div>
+                <div class="charInfoBlock">
+                    <h1>Параметры</h1>
+                    <table class="charInfoTable">
+                        <tbody>
+                            <tr>
+                                <td colspan="10">Здоровье</td>
+                            </tr>
+                            <tr id="health">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Заражение</td>
+                            </tr>
+                            <tr id="infection">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Голод</td>
+                            </tr>
+                            <tr id="hunger">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Жажда</td>
+                            </tr>
+                            <tr id="thirst">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Энергия</td>
+                            </tr>
+                            <tr id="energy">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="charSkills" class="charInfoBlock">
+                    <h1>Навыки</h1>
+                    <table class="charInfoTable">
+                        <tbody>
+                            <tr>
+                                <td colspan="10">Сила</td>
+                            </tr>
+                            <tr id="strength">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Выносливость</td>
+                            </tr>
+                            <tr id="endurance">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Охота</td>
+                            </tr>
+                            <tr id="hunting">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Врачевание</td>
+                            </tr>
+                            <tr id="healing">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Репутация</td>
+                            </tr>
+                            <tr id="reputation">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="game">
+                
+            </div>
         </div>
     </body>
 

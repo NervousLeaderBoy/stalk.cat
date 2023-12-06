@@ -41,7 +41,45 @@ function gettable() {
         var lng = tdlist.length;
         
         var char = document.getElementById("char");
+
+        var charInfo = $("#char").data("info");
+        // это чтобы вручную не вызывать функцию установки характеристик 10 раз
         // alert($("#char").data("info").token);
+        // alert(JSON.stringify(charInfo));
+        // alert(typeof (JSON.parse(JSON.stringify(charInfo))));
+        var jsontest = JSON.parse(JSON.stringify(charInfo));
+
+        // jsontest.forEach(function (value, key) {
+        //     alert(key + " " + value);
+        // })
+
+        setCharacteristics("health", charInfo.health);
+        setCharacteristics("infection", charInfo.infection);
+        setCharacteristics("hunger", charInfo.hunger);
+        setCharacteristics("thirst", charInfo.thirst);
+        setCharacteristics("energy", charInfo.energy);
+        
+        setCharacteristics("strength", charInfo.strength);
+        setCharacteristics("endurance", charInfo.endurance);
+        setCharacteristics("hunting", charInfo.hunting);
+        setCharacteristics("healing", charInfo.healing);
+        setCharacteristics("reputation", charInfo.reputation);
+
+
+        
+        function setCharacteristics(characteristicName, chacteristicValue) {
+            let characteristicRow = document.getElementById(characteristicName);
+            let val = chacteristicValue;
+            for (let i = 0; i < characteristicRow.childElementCount; i++) {
+                let tableCells = characteristicRow.children;
+                if (val > 0) {
+                    tableCells[i].setAttribute("class", "filled");
+                    val -= 10;
+                }
+                else tableCells[i].removeAttribute("class");
+            }
+        }
+        
         var posx = -1, posy = -1;
         
         var locname = document.getElementById("locname").innerHTML;

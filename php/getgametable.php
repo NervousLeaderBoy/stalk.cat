@@ -76,7 +76,12 @@ if ($charposarr) {
 
 
     echo "<div class='waitingbench'>";
-    if ($waiting) echo "<img id='char' src='../images/characters/".$waiting["name"].".png' title='".$waiting["name"]."' width='50px'></div>";
+    if ($waiting) {
+        $chararr = $waiting;
+        unset($chararr["token"], $chararr["positionX"], $chararr["positionY"], $chararr["name"]);
+        $charinfo = json_encode($chararr);
+        echo "<img id='char' src='../images/characters/".$waiting["name"].".png' title='".$waiting["name"]."' width='50px' data-info='$charinfo'></div>";
+    }
 
     echo "</center>";
 }
