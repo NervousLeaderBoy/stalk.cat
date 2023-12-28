@@ -9,8 +9,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
   <style>
+
+    .row:first-of-type {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #searchBox, #online+label {
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #searchBox {
+        background: url("images/Rectangle\ 38.png") #EDEFF1 no-repeat 10px 7px;
+        padding-left: 50px;
+    }
+
     .playerstable {
         border-spacing: 0px 1px;
+        max-height: 40vh;
+        display: block;
+        overflow-y: auto;
     }
     .playerstable tr {
         font-size: 20px;
@@ -18,13 +40,35 @@
     }
     .playerstable > thead td {
         border-bottom: 3px solid #0000002e;
+        min-width: 250px;
+    }
+    .playerstable > thead td:last-of-type {
+        min-width: 100px;
     }
     .playerstable td {
         padding: 10px 20px;
     }
 
-    .online {
+    .online, #online+label {
         color: #cf755f;
+    }
+
+    #online {
+        display: none;
+    }
+
+    #online+label {
+        background-color: #EDEFF1;
+    }
+
+    #online:active+label:active {
+        background-color: #aaaaaa;
+        color: white;
+    }
+
+    #online:checked+label {
+        color: white;
+        background: #cf755f;
     }
 
   </style>
@@ -35,7 +79,6 @@
     <h3 style="display:none"> Главная </h3>
     <div class="transblock">
     </div>
-
   </div>
 
 </body>
@@ -51,6 +94,59 @@
 
     getplayers.done(function(response){
         playersdiv.innerHTML = response;
+
+        var input = document.getElementById("searchBox");
+        input.addEventListener("input", findPlayers);
+
+        var online = document.getElementById("online");
+        online.addEventListener("change", showOnlinePlayers);
+        
+        function findPlayers() { // https://www.w3schools.com/howto/howto_js_filter_table.asp
+            var table = document.getElementById("players");
+            var tr = table.getElementsByTagName("tr");
+            var filter = input.value.toUpperCase();
+
+            var td, txtValue;
+
+            for (let i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function showOnlinePlayers() {
+            var table = document.getElementById("players");
+            var tr = table.getElementsByTagName("tr");
+            var filter = "online";
+            
+            var td, txtValue;
+            if (online.checked) {
+                for (let i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[3];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+            else {
+                for (let i = 0; i < tr.length; i++) {
+                    tr[i].style.display = "";
+                }
+            }
+        }
+
     })
 
 </script>

@@ -4,6 +4,15 @@ include_once "dbconnect.php";
 $getusersonline = mysqli_query($link, "SELECT characters.name, users.regdate, users.lastdate, users.status FROM characters JOIN users ON users.idUsers = characters.user");
 $usersarr = mysqli_fetch_array($getusersonline);
 
+echo "<div class='wrapper'>";
+
+echo "<div class='row'>";
+echo "<input id='searchBox' placeholder='Поиск'>";
+echo "<input type='checkbox' id='online'><label for='online'>Сейчас на сайте</label>";
+echo "</div>";
+
+echo "<div class='row'>";
+
 echo "<table class='playerstable'>
 <thead>
 <tr>
@@ -13,7 +22,18 @@ echo "<table class='playerstable'>
     <td>Статус на сайте</td>
 </tr>
 </thead>
-<tbody>";
+</table>";
+
+echo "<table class='playerstable'>
+<thead style='visibility:collapse'>
+<tr>
+    <td>Имя игрока</td>
+    <td>Дата регистрации</td>
+    <td>Последний заход</td>
+    <td>Статус на сайте</td>
+</tr>
+</thead>
+<tbody id='players'>";
 
 for ($i = 0; $i < mysqli_num_rows($getusersonline); $i++) {
     echo "<tr>";
@@ -27,4 +47,7 @@ for ($i = 0; $i < mysqli_num_rows($getusersonline); $i++) {
 
 echo "</tbody>
 </table>";
+echo "</div>";
+echo "</div>";
+
 ?>

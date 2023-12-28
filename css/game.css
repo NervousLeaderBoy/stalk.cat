@@ -1,16 +1,24 @@
 .gamewrapper {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     margin: 10px 0px;
+}
+
+h1 {
+    font-family: 'Amatic SC Bold';
+}
+
+td img {
+    max-width: 50px;
+    max-height: 50px;
 }
 
 /* CHAR INFO */
 
 .charInfo {
     height: 780px;
-    margin-right: 20px;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
@@ -76,6 +84,7 @@
     background-size: cover;
     background-color: blueviolet;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 td:has(#char) {
@@ -90,7 +99,29 @@ h2 {
     color: #cf755f;
 }
 
+/* INVENTORY AND BENCH */
 
+.waitingBench {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+}
+
+.inventory {
+    background-color: #3A4646;
+    background-size: cover;
+    border: 2px solid black;
+    display: inline-table;
+    border-spacing: 0;
+}
+
+.inventory td {
+    border: 2px solid black;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
 
 /*
 body {

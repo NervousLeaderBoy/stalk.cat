@@ -1,0 +1,25 @@
+﻿.tab {
+    font-family: 'Amatic SC';
+    width: 250px;
+    height: 50px;
+    font-size: 40px;
+    padding: 10px;
+    text-align: center;
+    background-color: #859594;
+    margin-right: 3px;
+    border-radius: 0 20px 0 0;
+    cursor: pointer;
+  }
+
+  .tabrow {
+    display: flex;
+    flex-flow: row wrap;
+    width: 1320px;
+  }
+
+  .tabText {
+    width: 1260px;
+    height: 300px;
+    background-color: rgba(237, 239, 241, 0.45);
+    padding: 30px;
+  }

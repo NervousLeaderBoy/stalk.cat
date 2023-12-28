@@ -1,7 +1,7 @@
 ﻿gettable();
 function gettable() {
 
-    var game = document.getElementById("game");
+    var game = document.querySelector(".gamewrapper");
     
     var getgametable = $.ajax({
         type: "GET",

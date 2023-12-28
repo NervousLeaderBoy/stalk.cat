@@ -50,5 +50,6 @@ echo "<textarea name='message' placeholder='Ваше сообщение' minleng
 echo "<input type='submit' class='buttonsimple' value='Отправить'>";
 echo "</form>";
 echo "</div>";
+echo "</div>";
 
 ?>
