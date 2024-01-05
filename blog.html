@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Блоги</title>
+    <title>Блог</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
 
@@ -13,8 +13,8 @@
   
       #searchBoxel {
           font-size: 20px;
+          border: 1px solid black;
           border-radius: 10px;
-          font-family: 'Jura';
           margin: 10px;
           padding: 10px;
           background: url("images/Rectangle\ 38.png") #EDEFF1 no-repeat 10px 7px;
@@ -31,16 +31,14 @@
   <div>
     <h3 style="display:none"> Блоги </h3>
     <div class="transblock">
-      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        <button type="button" class="buttonsimple" id="createBlogBtn" onclick="window.location.href='http://stalk.cat/createBlog.html'">Создание блога</button>
-          <input id="searchBoxel" type="text" id="searchInput" placeholder="Поиск по тегам" style="margin: 10px;; background-color: #EDEFF1; width: 20%; font-size: 20px; font-family: 'Jura'; font-style: normal; font-weight: 400;">
-      </div>
-      <div id="blogsContainer"></div>
-  </div>  
+      <div id="blogContent"></div>
+      <div id="commentsContent"></div>
+    </div>  
   </div>
 
   <script src="js/onclose.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/blog.js"></script>
 </body>
 
 </html>

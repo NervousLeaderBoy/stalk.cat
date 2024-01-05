@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Создание блога</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tab.css">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class="wrapper">
+    <script src="js/createBlog.js"></script>
+    <div>
+        <h3 style="display:none">Создание блога</h3>
+        <div class="transblock">
+            <form id="createBlogForm" style="width: 100%; padding: 10px;">
+              <div>
+                <label for="blogTitle" style="margin: 10px">Название блога:</label>
+                <input type="text" id="blogTitle" name="blogTitle" required style="width: 15%; padding: 10px; margin: 10px">
+              </div>
+                <label for="blogTags" style="margin: 10px">Теги (через запятую):</label>
+                <input type="text" id="blogTags" name="blogTags" required style="width: 35%; padding: 10px; margin: 10px">
+              <div>
+                <div><label for="blogText" style="margin: 10px">Текст:</label></div>
+                <div><textarea id="blogText" name="blogText" required style="width: 95%; padding: 10px; margin: 10px"></textarea></div>
+              </div>
+                <button class="buttonsimple" type="submit">Отправить блог</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/onclose.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

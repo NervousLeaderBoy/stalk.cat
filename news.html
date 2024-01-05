@@ -5,28 +5,22 @@
   <title>Новости</title>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="utf-8">
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body class="wrapper">
     <h3 style="display:none"> Главная </h3>
     <div class="transblock">
-      <h1 align="center"> Добро пожаловать в онлайн ролевую игру!</h1>
-      <p class="textinblock" align="center">Проект представляет из себя совмещение двух пусть и совершенно разных, но
-        интересных сеттинга -
-        тебе предстоит в роли дикого кота выживать на территории радиоактивной пустоши. Зона не место для нежных
-        кошачьих лапок:
-        придется столкнуться с опасными мутировавшими существами, проходить сквозь смертельные аномальные поля и многое
-        другое. </p>
-      <br>
-      <p class="textinblock" align="center"> Заинтересовало? <a href="reg.html">Регистрируйся</a> и играй на сайте!</p>
-      <br>
-
+      <div id="newsForm" style="width: 100%; display:none">
+        <div><textarea id="newsText" class="formblock" style="font-family: Ruda; width: 98%; font-size: 16px; padding: 10px; margin: 10px; text-align: left" placeholder="Введите текст новости..."></textarea></div>
+        <div><button class="buttonsimple" id="createNewsBtn">Создать новость</button></div>
     </div>
+      <div id="newsContainer"></div>
+  </div>
 
 </body>
 <script src="js/script.js"></script>
+<script src="js/loadNews.js"></script>
 <script src="js/onclose.js"></script>
-
 </html>
