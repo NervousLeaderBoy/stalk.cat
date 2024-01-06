@@ -22,6 +22,8 @@ $(document).ready(function () {
                 success: function (data) {
                     // Обработка успешного ответа от сервера
                     console.log(data); // Выводим ответ в консоль (можно заменить на другие действия)
+                    alert("Блог успешно создан!");
+                    window.location.href = 'http://stalk.cat/blogs.html';
                 },
                 error: function () {
                     // Обработка ошибки

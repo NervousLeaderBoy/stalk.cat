@@ -3,7 +3,7 @@ include_once "dbconnect.php"; // Подключение к базе данных
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $blogId = isset($_POST['blogId']) ? intval($_POST['blogId']) : 0;
-    $commentText = isset($_POST['text']) ? mysqli_real_escape_string($link, $_POST['text']) : '';
+    $commentText = isset($_POST['text']) ? mysqli_real_escape_string($link,  nl2br(htmlspecialchars($_POST['text']), ENT_QUOTES)) : '';
 
     if ($blogId > 0 && $commentText !== '') {
         $date = date('Y-m-d H:i:s');

@@ -43,7 +43,7 @@ if ($blogId > 0) {
             echo '<div class="formtext">';
             echo '<div class="blogEntry" style="background-color: #d9d9d9; margin-bottom: 10px; padding: 20px;">';
             echo '<div style="display: flex; justify-content: space-between;">';
-            $userId = $comment['fromuser'];
+            $userId = $comment['fromUser'];
             $userQuery = mysqli_query($link, "SELECT email FROM users WHERE idUsers = $userId");
             $user = mysqli_fetch_assoc($userQuery);
             $email = strtok($user["email"], "@");
@@ -62,7 +62,7 @@ if ($blogId > 0) {
 
     // Оставить комментарий
     echo '<div>';
-    echo '<textarea id="commentText" style="margin: 10px; padding: 10px;" placeholder="Текст комментария..."></textarea>';
+    echo '<textarea id="commentText" maxlength="1000" style="margin: 10px; padding: 10px;" placeholder="Текст комментария..."></textarea>';
     echo '</div>';
     echo '<div>';
     echo '<button class="buttonsimple" id="addCommentBtn">Оставить комментарий</button>';

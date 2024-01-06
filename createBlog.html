@@ -17,13 +17,13 @@
             <form id="createBlogForm" style="width: 100%; padding: 10px;">
               <div>
                 <label for="blogTitle" style="margin: 10px">Название блога:</label>
-                <input type="text" id="blogTitle" name="blogTitle" required style="width: 15%; padding: 10px; margin: 10px">
+                <input type="text" maxlength="100" id="blogTitle" name="blogTitle" required style="width: 15%; padding: 10px; margin: 10px">
               </div>
                 <label for="blogTags" style="margin: 10px">Теги (через запятую):</label>
-                <input type="text" id="blogTags" name="blogTags" required style="width: 35%; padding: 10px; margin: 10px">
+                <input type="text" maxlength="200" id="blogTags" name="blogTags" required style="width: 35%; padding: 10px; margin: 10px">
               <div>
                 <div><label for="blogText" style="margin: 10px">Текст:</label></div>
-                <div><textarea id="blogText" name="blogText" required style="width: 95%; padding: 10px; margin: 10px"></textarea></div>
+                <div><textarea id="blogText" maxlength="10000" name="blogText" required style="width: 95%; padding: 10px; margin: 10px"></textarea></div>
               </div>
                 <button class="buttonsimple" type="submit">Отправить блог</button>
             </form>

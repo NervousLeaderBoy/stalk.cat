@@ -1,7 +1,15 @@
 ﻿<?php
 include_once "dbconnect.php";
 
-$getusersonline = mysqli_query($link, "SELECT characters.name, users.regdate, users.lastdate, users.status FROM characters JOIN users ON users.idUsers = characters.user");
+$sessid = $_COOKIE["PHPSESSID"];
+$usernameQuery = mysqli_query($link, "SELECT idUsers FROM users WHERE token = '$sessid'");
+$currentUserId = 0; // По умолчанию
+if ($usernameQuery) {
+    $userInfo = mysqli_fetch_assoc($usernameQuery);
+    $currentUserId = $userInfo['idUsers'];
+}
+
+$getusersonline = mysqli_query($link, "SELECT characters.name, users.regdate, users.lastdate, users.status FROM characters JOIN users ON users.idUsers = characters.user WHERE users.idUsers <> '$currentUserId'");
 $usersarr = mysqli_fetch_array($getusersonline);
 
 echo "<div class='wrapper'>";

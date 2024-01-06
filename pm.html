@@ -7,29 +7,69 @@
   <meta charset="utf-8">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+    .transblock {
+      display: flex;
+      height: 100%;
+    }
+
+    #userList {
+      /*position: fixed;*/
+      left: 20px;
+      width: 26.5rem; /* Ширина колонки пользователей */
+    }
+    
+    #chat {
+      flex-grow: 1;
+      margin-left: 20px; /* Смещаем содержимое чата на 20px */
+      width: calc(100% - 26.5rem); /* Ширина чата равна ширине экрана минус ширина userlist */
+    }
+
+    #messageInput {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    #messageText {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    #sendMessageBtn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    body {
+      margin: 0; /* Убираем внешний отступ у body */
+      overflow: hidden; /* Убираем прокрутку body */
+    }
+  </style>
 </head>
 
 <body class="wrapper">
   <div>
     <h3 style="display:none"> Главная </h3>
     <div class="transblock">
-      <h1 align="center"> Добро пожаловать в онлайн ролевую игру!</h1>
-      <p class="textinblock" align="center">Проект представляет из себя совмещение двух пусть и совершенно разных, но
-        интересных сеттинга -
-        тебе предстоит в роли дикого кота выживать на территории радиоактивной пустоши. Зона не место для нежных
-        кошачьих лапок:
-        придется столкнуться с опасными мутировавшими существами, проходить сквозь смертельные аномальные поля и многое
-        другое. </p>
-      <br>
-      <p class="textinblock" align="center"> Заинтересовало? <a href="reg.html">Регистрируйся</a> и играй на сайте!</p>
-      <br>
-
+      <div id="userList"></div>
+      <div id="chat">
+        <div id="messages"></div>
+        <div id="messageInput">
+          <textarea id="messageText" placeholder="Введите текст сообщения..."></textarea>
+          <button id="sendMessageBtn">Отправить</button>
+        </div>
+      </div>
     </div>
-
   </div>
 
 </body>
 <script src="js/script.js"></script>
 <script src="js/onclose.js"></script>
+<!-- Подключение JS для обработки кликов и загрузки чата -->
+<script src="js/chat.js"></script>
 
 </html>

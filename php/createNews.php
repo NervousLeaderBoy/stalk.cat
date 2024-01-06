@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($isAdmin) {
-        $newsText = isset($_POST['newsText']) ? mysqli_real_escape_string($link, $_POST['newsText']) : '';
+        $newsText = isset($_POST['newsText']) ? mysqli_real_escape_string($link,  nl2br(htmlspecialchars($_POST['text']), ENT_QUOTES)) : '';
 
         if ($newsText !== '') {
             $date = date('Y-m-d H:i:s');
