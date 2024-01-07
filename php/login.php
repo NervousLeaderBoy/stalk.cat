@@ -12,7 +12,9 @@ else {
         
         session_start();
         $sessid = session_id();
-        
+        $expire = 30 * 24 * 3600; // месяц
+        setcookie("PHPSESSID", $sessid, time() + $expire);
+
         $logupdate = mysqli_query($link, "UPDATE users SET lastdate=NOW(), token='$sessid', status='online' WHERE email='$email'");
         
         if (!$logupdate) echo "Ошибка входа.";
