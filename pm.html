@@ -7,48 +7,6 @@
   <meta charset="utf-8">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <style>
-    .transblock {
-      display: flex;
-      height: 100%;
-    }
-
-    #userList {
-      /*position: fixed;*/
-      left: 20px;
-      width: 26.5rem; /* Ширина колонки пользователей */
-    }
-    
-    #chat {
-      flex-grow: 1;
-      margin-left: 20px; /* Смещаем содержимое чата на 20px */
-      width: calc(100% - 26.5rem); /* Ширина чата равна ширине экрана минус ширина userlist */
-    }
-
-    #messageInput {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-    }
-    #messageText {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-    }
-    #sendMessageBtn {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-    }
-
-    body {
-      margin: 0; /* Убираем внешний отступ у body */
-      overflow: hidden; /* Убираем прокрутку body */
-    }
-  </style>
 </head>
 
 <body class="wrapper">
@@ -56,12 +14,10 @@
     <h3 style="display:none"> Главная </h3>
     <div class="transblock">
       <div id="userList"></div>
-      <div id="chat">
-        <div id="messages"></div>
-        <div id="messageInput">
-          <textarea id="messageText" placeholder="Введите текст сообщения..."></textarea>
-          <button id="sendMessageBtn">Отправить</button>
-        </div>
+      <div id="chat" style = "width: 100%; display: flex; flex-direction: column; align-items: flex-start;"></div>
+      <div id="messageInput">
+        <textarea id="messageText" maxlength="1000" placeholder="Введите текст сообщения..."></textarea>
+        <button id="sendMessageBtn">Отправить</button>
       </div>
     </div>
   </div>
