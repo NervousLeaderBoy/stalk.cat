@@ -4,7 +4,9 @@ include_once "dbconnect.php";
 $sessid = $_COOKIE["PHPSESSID"];
 
 $getusersonline = mysqli_query($link, "SELECT characters.name, users.regdate, users.lastdate, users.status FROM characters JOIN users ON users.idUsers = characters.user WHERE users.token <> '$sessid' OR users.token IS NULL");
+$getuseridsonline = mysqli_query($link, "SELECT users.idUsers FROM characters JOIN users ON users.idUsers = characters.user WHERE users.token <> '$sessid' OR users.token IS NULL");
 $usersarr = mysqli_fetch_array($getusersonline);
+$useridsarr = mysqli_fetch_array($getuseridsonline);
 
 echo "<div class='wrapper'>";
 
@@ -38,12 +40,16 @@ echo "<table class='playerstable'>
 <tbody id='players'>";
 
 for ($i = 0; $i < mysqli_num_rows($getusersonline); $i++) {
-    echo "<tr>";
+    echo "<tr class='profiled' data-user-id='".$useridsarr['idUsers']."'>";
     for ($j = 0; $j < mysqli_num_fields($getusersonline); $j++) {
-        if ($usersarr[$j] != "online") echo "<td>".$usersarr[$j]."</td>";
-        else echo "<td class='online'>".$usersarr[$j]."</td>";
+        if ($usersarr[$j] != "online") {
+            echo "<td>".$usersarr[$j]."</td>";
+        } else {
+            echo "<td class='online'>".$usersarr[$j]."</td>";
+        }
     }
     $usersarr = mysqli_fetch_array($getusersonline);
+    $useridsarr = mysqli_fetch_array($getuseridsonline);
     echo "</tr>";
 }
 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Профиль</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="utf-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <style>
+            .usertable {
+                display: inline-table;
+                border-spacing: 0px 1px;
+                margin-left: 20px;
+            }
+            .usertable tr {
+                font-size: 20px;
+                background-color: rgba(255, 255, 255, 0.452);
+            }
+            .usertable td {
+                padding: 10px 20px;
+            }
+            .row {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .userpic {
+                border: 3px solid #3A4646;
+                padding-left: 15px;
+                padding-top: 15px;
+                background-color: rgba(133, 149, 148, 0.5);
+            }
+            textarea {
+                min-height: 100px;
+                max-height: 1100px;
+                resize: vertical;
+                padding: 10px;
+            }
+            form {
+                display: flex;
+                flex-flow: column wrap;
+                flex-grow: 1;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body class="wrapper">
+        <div>
+            <h3 style="display:none"> Главная </h3>
+            <div class="transblock">
+
+            </div>
+        </div>
+    </body>
+
+    <script src="js/script.js"></script>
+    <script src="js/onclose.js"></script>
+
+    <script>
+        var infodiv = document.querySelector(".transblock");
+        $(document).ready(function() {
+            // Получаем userId из параметров URL
+            var userId = getUrlParameter('userId');
+        
+            // Выполняем AJAX-запрос на сервер, передавая userId
+            var getplayers = $.ajax({
+                type: "GET",
+                url: "../php/getprofile.php",
+                data: { userId: userId },
+                success: function(response) {
+                    infodiv.innerHTML = response;
+                    // Обрабатываем ответ от сервера, например, вставляем данные в DOM
+                    // response содержит данные, возвращенные из getprofile.php
+                },
+                error: function(xhr, status, error) {
+                    // Обрабатываем ошибку AJAX-запроса
+                    console.log('Ошибка при выполнении AJAX-запроса: ' + error);
+                }
+            });
+        });
+        
+        // Функция для получения параметра из URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+        
+    </script>
+</html>
