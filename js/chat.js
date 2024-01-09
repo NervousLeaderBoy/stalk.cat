@@ -9,7 +9,7 @@ $(document).ready(function () {
         url: "php/checkID.php",
         type: "GET",
         success: function (data) {
-            currentUserId = recipientUserId = data;
+            currentUserId = data;
 
             // Загрузка списка пользователей при загрузке страницы
             loadUserList();
@@ -43,11 +43,21 @@ $(document).ready(function () {
                     loadChat(userId);
                 });
                 
+                if (localStorage.getItem('recipientUserId') !== null) {
+                    // Объект существует, можно получить его значение
+                    recipientUserId = localStorage.getItem('recipientUserId');
+                    localStorage.removeItem('recipientUserId');
+                    console.log('recipientUserId:', recipientUserId);
+                } else {
+                    console.log('Объект не существует в localStorage');
+                }
+
                 // Если текущий пользователь не выбран, загружаем чат для текущего пользователя
                 if (!recipientUserId) {
                     console.log("Loading chat for current user ID: " + currentUserId);
                     loadChat(currentUserId);
                 }
+                else loadChat(recipientUserId);
             },
             error: function () {
                 console.log("Ошибка при загрузке списка пользователей.");
