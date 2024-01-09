@@ -19,8 +19,7 @@ if ($getuserinfo["name"] == "") {
 else echo "<img class='userpic' src='../images/characters/".$getuserinfo["name"].".png' title='".$getuserinfo["name"]."' width='250px'>";
 
 $name = $getuserinfo["name"];
-// $regdate = date("d.m.Y H:i:s",strtotime($getuserinfo["regdate"]));
-// $lastdate = date("d.m.Y H:i:s",strtotime($getuserinfo["lastdate"]));
+$userId = $getuserinfo["idUsers"];  // Используем $getuserinfo["idUsers"] вместо array_shift
 
 $regdate = new DateTime($getuserinfo["regdate"]);
 $lastdate = new DateTime($getuserinfo["lastdate"]);
@@ -43,13 +42,18 @@ echo "</tbody></table>";
 echo "</div>";
 
 if ($name != "Здесь будет имя персонажа") {
-
     echo "<div class='row'>";
     echo "<form>";
     echo "<textarea name='about' placeholder='Игрок пока не рассказал о себе...' disabled maxlength='5000'>".$getuserinfo["about"]."</textarea>";
     echo "</form>";
     echo "</div>";
 }
-echo "</div>";
 
+// Добавляем кнопку с data-атрибутом
+echo "<div class='row'>";
+echo "<div class='button-container'>";
+echo "<button class='profile-button' data-user-id='".$userId."'>Перейти к Личным Сообщениям</button>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
 ?>

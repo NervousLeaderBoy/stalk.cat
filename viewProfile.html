@@ -70,8 +70,13 @@
                 data: { userId: userId },
                 success: function(response) {
                     infodiv.innerHTML = response;
-                    // Обрабатываем ответ от сервера, например, вставляем данные в DOM
-                    // response содержит данные, возвращенные из getprofile.php
+                    $('.profile-button').on('click', function() {
+                        // Получаем user-id из data-атрибута кнопки
+                        var idRecipient = $(this).data('user-id');
+                        localStorage.setItem('recipientUserId', idRecipient);
+                        // Перенаправляем пользователя на страницу pm.html с параметром userId
+                        window.location.href = 'pm.html';
+                    });
                 },
                 error: function(xhr, status, error) {
                     // Обрабатываем ошибку AJAX-запроса
@@ -87,6 +92,5 @@
             var results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
-        
     </script>
 </html>
