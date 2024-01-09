@@ -2,25 +2,120 @@
 <html>
 
 <head>
-  <title>Личные сообщения</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta charset="utf-8">
+    <title>Личные сообщения</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        .transblock {
+            height: 800px;
+            flex-flow: row wrap;
+        }
+        .row {
+            display: flex;
+            flex-flow: row nowrap;
+            flex: 1 0;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            min-width: 1200px;
+        }
+        #userList {
+            height: 700px;
+            width: 250px;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: start;
+            gap: 1px;
+            background-color: rgba(133, 149, 148, 0.5);
+        }
+        .user-item {
+            padding: 10px;
+            background-color: #3A4646;
+            color: white;
+        }
+        .user-item:hover {
+            background-color: #859594;;
+            color: white;
+        }
+        #chat {
+            width: 1550px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            overflow-y: auto;
+            background-color: rgba(133, 149, 148, 0.5);
+        }
+        .msg {
+            background-color: #EDEFF1;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 0 10px;
+            font-family: Ruda;
+            max-width: 50%;
+        }
+        .msg > p {
+            margin: 10px 0;
+        }
+        .msg.right {
+            align-self: flex-end;
+            border-bottom-right-radius: 0px;
+        }
+        .msg.right::before, .msg.left::before {
+            display: block;
+            content: '';
+            position: relative;
+            width: 0px;
+            border-top: 15px solid #EDEFF1;
+        }
+        .msg.right::before {
+            left: calc(100% - 10px);
+            top: 100%;
+            border-left: 20px solid transparent;
+        }
+        .msg.left {
+            align-self: flex-start;
+            border-bottom-left-radius: 0px;
+        }
+        .msg.left::before {
+            left: -10px;
+            top: 100%;
+            border-right: 20px solid transparent;
+        }
+        .message-time {
+            font-family: "Jura";
+            color: #859594;
+        }
+        #messageInput {
+            justify-content: flex-end;
+        }
+        #messageText {
+            height: 60px;
+            width: 1400px;
+            resize: none;
+        }
+
+    </style>
 </head>
 
 <body class="wrapper">
-  <div>
-    <h3 style="display:none"> Главная </h3>
-    <div class="transblock">
-      <div id="userList"></div>
-      <div id="chat" style = "width: 100%; display: flex; flex-direction: column; align-items: flex-start;"></div>
-      <div id="messageInput">
-        <textarea id="messageText" maxlength="1000" placeholder="Введите текст сообщения..."></textarea>
-        <button id="sendMessageBtn">Отправить</button>
-      </div>
+    <div>
+        <h3 style="display:none"> Главная </h3>
+        <div class="transblock">
+            <div class="row">
+                <div id="userList"></div>
+                <div id="chat"></div>
+            </div>
+            <div id="messageInput" class="row">
+                <textarea id="messageText" maxlength="1000" placeholder="Введите текст сообщения..."></textarea>
+                <button id="sendMessageBtn" class="buttonsimple">Отправить</button>
+            </div>
+        </div>
     </div>
-  </div>
 
 </body>
 <script src="js/script.js"></script>

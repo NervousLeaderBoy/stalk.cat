@@ -18,9 +18,9 @@ if (isset($_GET['userId'])) {
             $messageText = $message['text'];
             $fromUser = $message['from_user'];
             $time = date('Y-m-d H:i:s', strtotime($message['time']));
-            $alignClass = ($fromUser == $userId) ? 'start' : 'end';
-            if ($message['from_user'] == $message['to_user']) $alignClass = 'end';
-            echo '<div style="align-self: flex-'.$alignClass.'; background-color: #EDEFF1; border-radius: 10px; margin: 10px; padding: 10px; font-family: Ruda; max-width: 30%;">';
+            $class = ($fromUser == $userId) ? 'left' : 'right';
+            if ($message['from_user'] == $message['to_user']) $class = 'left';
+            echo '<div class="msg '.$class.'">';
             echo '<span class="message-time">' . $time . '</span>';
             echo '<p>' . $messageText . '</p>';
             echo '</div>';

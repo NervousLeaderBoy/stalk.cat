@@ -15,10 +15,11 @@ td img {
     max-height: 50px;
 }
 
-/* CHAR INFO */
+/******************************************************* CHAR INFO */
 
 .charInfo {
-    height: 780px;
+    height: 797px;
+    min-width: 190px;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
@@ -29,6 +30,7 @@ td img {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     padding: 10px;
+    padding-top: 5px;
 }
 
 .charInfoBlock h1 {
@@ -58,13 +60,76 @@ td img {
     background-color: orange;
 }
 
-/* GAME */
+/******************************************************* OTHERS INFO */
+
+.othersInfo {
+    height: 797px;
+    width: 250px;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    font-family: "Ruda";
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+div:has(>#otherPic) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 275px;
+    padding: 10px;
+    padding-bottom: 0;
+    background-color: rgba(133, 149, 148, 0.5);
+    border-radius: 5px;
+}
+
+#otherPic {
+    width: 230px;
+}
+
+#otherName {
+    color: #cf755f;
+    line-break: auto;
+    word-break: break-word;
+    font-size: 40px;
+    line-height: normal;
+}
+
+#otherInfo {
+    width: 230px;
+    max-height: 60px;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#othersInfoClose {
+    width: 90%;
+    color: white;
+    background-color: #cf755f;
+    border-color: #cf755f;
+}
+
+input {
+    font-size: 15px !important;
+    width: 100px;
+    white-space: normal;
+}
+
+/******************************************************* GAME */
 
 .gametable {
     background-color: white;
-    background-size: cover;
+    background-size: 1150px;
+    background-position: -225px -20px;
     display: inline-table;
     border-spacing: 0;
+    padding: 5px;
 }
 
 .gametable td {
@@ -73,10 +138,10 @@ td img {
     height: 60px;
     text-align: center;
 }
-
+/* 
 .occupied {
     background-color: rgba(255, 255, 255, 0.5);
-}
+} */
 
 .transition {
     color: white;
@@ -85,27 +150,36 @@ td img {
     background-color: blueviolet;
     border-radius: 30px;
     cursor: pointer;
+    word-break: break-word;
 }
 
 td:has(#char) {
     border: 2px solid orange;
+    backdrop-filter: blur(30px) opacity(95%)
 }
 
 #msg, .waitingbench {
     display: inline-block;
 }
 
-h2 {
-    color: #cf755f;
+.viewing {
+    border: 2px dotted orange !important;
+    backdrop-filter: blur(30px) opacity(95%);
 }
 
-/* INVENTORY AND BENCH */
+.hunting {
+    border: 2px dashed orange !important;
+}
+
+
+/******************************************************* INVENTORY AND BENCH */
 
 .waitingBench {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 200px;
+    min-width: 190px;
+    margin-right: 15px;
 }
 
 .inventory {
@@ -121,6 +195,10 @@ h2 {
     width: 60px;
     height: 60px;
     text-align: center;
+}
+
+#msg {
+    color: white;
 }
 
 /*

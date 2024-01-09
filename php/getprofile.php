@@ -46,7 +46,7 @@ if ($name != "Здесь будет имя персонажа") {
 
     echo "<div class='row'>";
     echo "<form>";
-    echo "<textarea name='about' placeholder='Расскажите о себе' disabled maxlength='5000'>".$getuserinfo["about"]."</textarea>";
+    echo "<textarea name='about' placeholder='Игрок пока не рассказал о себе...' disabled maxlength='5000'>".$getuserinfo["about"]."</textarea>";
     echo "</form>";
     echo "</div>";
 }
