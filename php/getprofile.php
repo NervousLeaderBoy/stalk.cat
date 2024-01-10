@@ -29,7 +29,7 @@ $getuserinfo["regdate"] = $interval->format("%y г, %m мес, %d д, %h ч");
 
 $cols = ["Имя", "Id", "Время в игре"];
 
-echo "<table class='usertable'><tbody>";
+echo "<div><table class='usertable'><tbody>";
 
 for ($i = 0; $i < 3 ; $i++) {
     echo "<tr>";
@@ -39,6 +39,9 @@ for ($i = 0; $i < 3 ; $i++) {
 }
 
 echo "</tbody></table>";
+// Добавляем кнопку с data-атрибутом
+echo "<button class='profile-button buttonsimple' data-user-id='".$userId."'>Перейти к личным сообщениям</button>";
+echo "</div>";
 echo "</div>";
 
 if ($name != "Здесь будет имя персонажа") {
@@ -48,12 +51,4 @@ if ($name != "Здесь будет имя персонажа") {
     echo "</form>";
     echo "</div>";
 }
-
-// Добавляем кнопку с data-атрибутом
-echo "<div class='row'>";
-echo "<div class='button-container'>";
-echo "<button class='profile-button' data-user-id='".$userId."'>Перейти к Личным Сообщениям</button>";
-echo "</div>";
-echo "</div>";
-echo "</div>";
 ?>

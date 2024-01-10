@@ -19,7 +19,9 @@
 
   .tabText {
     width: 1260px;
-    height: 300px;
+    height: 100px;
     background-color: rgba(237, 239, 241, 0.45);
     padding: 30px;
+    font-family: "Ruda";
+    font-size: 18px;
   }

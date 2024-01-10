@@ -11,7 +11,7 @@
             .usertable {
                 display: inline-table;
                 border-spacing: 0px 1px;
-                margin-left: 20px;
+                flex: 1 0;
             }
             .usertable tr {
                 font-size: 20px;
@@ -41,6 +41,17 @@
                 flex-flow: column wrap;
                 flex-grow: 1;
                 margin-top: 20px;
+            }
+            .row > div {
+                display: flex;
+                flex-flow: column;
+                align-items: stretch;
+                justify-content: space-between;
+                margin-left: 20px;
+                gap: 20px;
+            }
+            button {
+                margin: 0 !important;
             }
         </style>
     </head>

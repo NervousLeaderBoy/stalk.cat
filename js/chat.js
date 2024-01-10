@@ -74,7 +74,12 @@ $(document).ready(function () {
             success: function (data) {
                 // Обработка успешного ответа от сервера
                 console.log('Чат загружен успешно для пользователя с ID: ' + userId);
-                $("#chat").html(data); // Вставить полученный чат в блок #messages
+                let chat = document.querySelector("#chat");
+                chat.innerHTML = data; // Вставить полученный чат в блок #messages
+                chat.scrollTo({
+                    top: chat.scrollHeight,
+                    behavior: "smooth",
+                });
             },
             error: function (xhr, status, error) {
                 // Обработка ошибки

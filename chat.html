@@ -84,6 +84,11 @@
             var subm = document.querySelector("input[type=submit]");
             var msg = document.querySelector("textarea");
 
+            tbody.parentNode.scrollTo({
+                top: tbody.parentNode.scrollHeight,
+                behavior: "smooth",
+            });
+
             subm.addEventListener("click", function(){
                 let updaboutaj = $.ajax({
                     type: "POST",
@@ -110,9 +115,9 @@
                         tbody.append(newrow);                        
                         msg.value = "";
                         tbody.parentNode.scrollTo({
-                            top: 10000,
+                            top: tbody.parentNode.scrollHeight,
                             behavior: "smooth",
-                            });
+                        });
                     }
                     else alert(response);
                 })
