@@ -1,6 +1,6 @@
 ﻿gettable();
 var calledParallax = false;
-var energyTimeout, preyTimeout;
+var energyTimeout, healthTimeout, preyTimeout;
 
 function gettable() {
 
@@ -108,6 +108,7 @@ function gettable() {
             else {
                 playerCharacteristics[characteristicName] = chacteristicValue;
                 let characteristicRow = document.getElementById(characteristicName);
+                characteristicRow.setAttribute("title", chacteristicValue);
                 let val = chacteristicValue;
                 for (let i = 0; i < characteristicRow.childElementCount; i++) {
                     let tableCells = characteristicRow.children;
@@ -140,6 +141,15 @@ function gettable() {
         function restoreEnergy() {
             setCharacteristics("energy", +playerCharacteristics.energy + 1);
             energyTimeout = setTimeout(restoreEnergy, 5000);
+        }
+
+        clearInterval(healthTimeout);
+        healthTimeout = setTimeout(restoreHealth, 5000);
+
+        function restoreHealth() {
+            setCharacteristics("health", +playerCharacteristics.health + +(playerCharacteristics.healing/10));
+            healthTimeout = setTimeout(restoreHealth, 10000);
+            console.log(playerCharacteristics.health);
         }
         
 
@@ -177,7 +187,7 @@ function gettable() {
         var PreyActionHunt = document.querySelector("#PreyActionHunt");
         var PreyActionAttack = document.querySelector("#PreyActionAttack");
 
-        var itemsTypes = { "equipable": "Снаряжение", "edible": "Съедобно", "artifact": "Артефакт", "medicine": "Лекарство", "weapon": "Оружие", "supplies": "Боеприпас", "misc": "Другое", "tool": "Инструмент" };
+        var itemsTypes = { "equipable": "Снаряжение", "edible": "Съедобно", "artifact": "Артефакт", "medicine": "Лекарство", "weapon": "Оружие", "supplies": "Боеприпас", "misc": "Разное", "tool": "Инструмент" };
 
         var others = document.querySelectorAll(".other");
         others.forEach(element => {
@@ -211,7 +221,8 @@ function gettable() {
                     otherInfo.innerHTML = otherAttributes.description;
                     otherType.innerHTML = itemsTypes[otherAttributes.type];
                     
-                    otherCharacteristics.style.display = "block";
+                    // otherCharacteristics.style.display = "block";
+                    otherCharacteristics.style.display = "none";
                     otherPlayerActions.style.display = "none";
                     itemsActions.style.display = "block";
                     preyActions.style.display = "none";

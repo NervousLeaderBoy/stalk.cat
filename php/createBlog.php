@@ -9,7 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($blogTitle && $blogTags && $blogText) {
         // Определение пользователя
         $sessid = $_COOKIE["PHPSESSID"];
-        $author = mysqli_query($link, "SELECT idUsers FROM users WHERE token = '$sessid'");
+        $authorQuery = mysqli_query($link, "SELECT idUsers FROM users WHERE token = '$sessid'");
+        $author = mysqli_fetch_assoc($authorQuery);
+        $author =  $author['idUsers'];
 
         // Вставка данных блога в базу данных
         $insertQuery = mysqli_query($link, "INSERT INTO blog (theme, tags, text, author) VALUES ('$blogTitle', '$blogTags', '$blogText', '$author')");

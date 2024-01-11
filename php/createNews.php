@@ -13,31 +13,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($isAdmin) {
-        $newsText = isset($_POST['newsText']) ? mysqli_real_escape_string($link,  nl2br(htmlspecialchars($_POST['text']), ENT_QUOTES)) : '';
+        $newsText = isset($_POST['newsText']) ? mysqli_real_escape_string($link,  nl2br(htmlspecialchars($_POST['newsText']), ENT_QUOTES)) : '';
 
         if ($newsText !== '') {
             $date = date('Y-m-d H:i:s');
-
+            
             // Запрос на добавление новости
             $query = mysqli_query($link, "INSERT INTO news (newsDate, newsText) VALUES ('$date', '$newsText')");
-
+            
             if ($query) {
                 // Новость успешно добавлена
-                echo json_encode(array('status' => 'success'));
+                echo json_encode(array('status' => 'success'), JSON_UNESCAPED_UNICODE);
             } else {
                 // Ошибка запроса
-                echo json_encode(array('status' => 'error', 'message' => 'Ошибка при выполнении запроса: ' . mysqli_error($link)));
+                echo json_encode(array('status' => 'error', 'message' => 'Ошибка при выполнении запроса: ' . mysqli_error($link)), JSON_UNESCAPED_UNICODE);
             }
         } else {
             // Некорректные данные
-            echo json_encode(array('status' => 'error', 'message' => 'Некорректные данные'));
+            echo json_encode(array('status' => 'error', 'message' => 'Некорректные данные'), JSON_UNESCAPED_UNICODE);
         }
     } else {
         // Пользователь не является администратором
-        echo json_encode(array('status' => 'error', 'message' => 'Недостаточно прав для создания новости'));
+        echo json_encode(array('status' => 'error', 'message' => 'Недостаточно прав для создания новости'), JSON_UNESCAPED_UNICODE);
     }
 } else {
     // Недопустимый метод запроса
-    echo json_encode(array('status' => 'error', 'message' => 'Недопустимый метод запроса'));
+    echo json_encode(array('status' => 'error', 'message' => 'Недопустимый метод запроса'), JSON_UNESCAPED_UNICODE);
 }
 ?>

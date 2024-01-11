@@ -49,6 +49,7 @@ $(document).ready(function () {
                     loadNews();
                     // Очищаем поле ввода
                     $("#newsText").val('');
+                    console.log(data);
                 },
                 error: function () {
                     console.log("Ошибка при создании новости.");

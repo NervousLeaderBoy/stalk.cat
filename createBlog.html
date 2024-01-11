@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="css/tab.css">
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        label {
+            display: inline-block;
+            min-width: 150px;
+        }
+        textarea {
+            height: 200px;
+        }
+    </style>
 </head>
 
 <body class="wrapper">
@@ -14,7 +23,7 @@
     <div>
         <h3 style="display:none">Создание блога</h3>
         <div class="transblock">
-            <form id="createBlogForm" style="width: 100%; padding: 10px;">
+            <form id="createBlogForm" style="width: 90%; padding: 10px;">
               <div>
                 <label for="blogTitle" style="margin: 10px">Название блога:</label>
                 <input type="text" maxlength="100" id="blogTitle" name="blogTitle" required style="width: 15%; padding: 10px; margin: 10px">

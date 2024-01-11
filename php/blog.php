@@ -61,10 +61,8 @@ if ($blogId > 0) {
     }
 
     // Оставить комментарий
-    echo '<div>';
-    echo '<textarea id="commentText" maxlength="1000" style="margin: 10px; padding: 10px;" placeholder="Текст комментария..."></textarea>';
-    echo '</div>';
-    echo '<div>';
+    echo '<div class="row">';
+    echo '<textarea id="commentText" maxlength="1000" placeholder="Текст комментария..."></textarea>';
     echo '<button class="buttonsimple" id="addCommentBtn">Оставить комментарий</button>';
     echo '</div>';
 } else {

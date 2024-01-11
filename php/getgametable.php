@@ -61,7 +61,7 @@ if ($charposarr) {
             echo "<tr>
             <td colspan='10'>$charinforus[$counter]</td>
             </tr>
-            <tr id=$key>";
+            <tr id=$key title=$value>";
             
             for ($i = 0; $i < 100; $i+=10) {
                 if ($i < $value) echo "<td class='filled'></td>";
@@ -85,7 +85,7 @@ if ($charposarr) {
             echo "<tr>
             <td colspan='10'>$charinforus[$counter]</td>
             </tr>
-            <tr id=$key>";
+            <tr id=$key title=$value>";
             
             for ($i = 0; $i < 100; $i+=10) {
                 if ($i < $value) echo "<td class='filled'></td>";
@@ -234,6 +234,6 @@ if ($charposarr) {
 
     echo "</div>";
 
-    echo "<div id='msg'>for msg</div>";
+    echo "<div id='msg'></div>";
 }
 ?>
